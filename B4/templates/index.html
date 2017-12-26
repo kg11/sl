@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<title>Student Portal</title>
+		<script>
+			function validate()
+			{
+				
+				var usn = document.getElementById('usn').value;
+				var usn_type = /^1MS[0-9][0-9][A-Z][A-Z][0-9][0-9][0-9]$/
+				if (!usn_type.test(usn))
+					{
+						alert('Enter Correct USN Format')
+						return false
+					}
+				
+				var dob = document.getElementById("dob").value
+
+				var dob_type = /^[0-3][0-9][/][0-1][0-9][/][0-9][0-9][0-9][0-9]$/
+				if (!dob_type.test(dob))
+					{	
+						alert('Enter Correct Date Format')
+						return false
+					}
+				return true
+			}
+		</script>
+	</head>
+
+	<body>
+		<h3>Enter Student Details</h3>
+		<form id ="register"  onsubmit="return validate()" action="{{url_for('server')}}" method="POST">
+			USN:  <input type = "text" name = "usn" id="usn" required><br>
+			Name:  <input type = "text" name = "name" id="name" required><br>
+			DOB:  <input type = "text" name = "dob" id="dob" required><br>
+			Mark1 :  <input type = "number" name = "mark1" min='0' max='100' required><br>
+			Credit1 :  <input type = "number" name = "credit1"  min='1' max='4' required><br>
+			Mark2 :  <input type = "number" name = "mark2" min='0' max='100' required><br>
+			Credit2 :  <input type = "number" name = "credit2"  min='1' max='4' required><br>
+			Mark3 :  <input type = "number" name = "mark3" min='0' max='100' required><br>
+			Credit3 :  <input type = "number" name = "credit3"  min='1' max='4' required><br>
+			Mark4 :  <input type = "number" name = "mark4" min='0' max='100' required><br>
+			Credit4 :  <input type = "number" name = "credit4"  min='1' max='4' required><br>
+			Mark5 :  <input type = "number" name = "mark5" min='0' max='100' required><br>
+			Credit5 :  <input type = "number" name = "credit5"  min='1' max='4' required><br>
+			
+			<br>
+			<input type="submit" name="Submit" value="Submit"><br><br>
+		</form>
+
+		<p>{{msg}}</p>
+
+	</body>
+</html>
